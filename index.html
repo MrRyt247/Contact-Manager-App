@@ -1,70 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>Contact Manager</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Contact Manager</title>
 </head>
+
 <body>
-  <!-- Loading Screen -->
-  <div class="loader" id="loader">
-    <img src="/api/placeholder/150/150" alt="Contact Manager">
-    <div class="spinner"></div>
-  </div>
-
-  <!-- Main Container -->
-  <div class="container">
-    <header>
-      <h1>Contact Manager</h1>
-      <div class="search-container">
-        <input type="text" id="searchInput" placeholder="Search contacts...">
-        <button id="addContactBtn">Add Contact</button>
-      </div>
-    </header>
-
-    <div class="contacts-list" id="contactsList">
-      <div class="empty-state">
-        <h3>No contacts yet</h3>
-        <p>Add your first contact to get started!</p>
-      </div>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <img src="/api/placeholder/150/150" alt="Contact Manager">
+        <div class="spinner"></div>
     </div>
-  </div>
 
-  <!-- Add/Edit Contact Modal -->
-  <div class="modal" id="contactModal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2 id="modalTitle">Add Contact</h2>
-        <button class="close-btn" id="closeModal">&times;</button>
-      </div>
-      <form id="contactForm">
-        <input type="hidden" id="contactId">
-        <div class="form-group">
-          <label for="name">Name*</label>
-          <input type="text" id="name" required>
+    <!-- Main Container -->
+    <div class="container">
+        <header>
+            <h1>Contact Manager</h1>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search contacts...">
+                <button id="addContactBtn">Add Contact</button>
+            </div>
+        </header>
+
+        <div class="contacts-list" id="contactsList">
+            <div class="empty-state">
+                <h3>No contacts yet</h3>
+                <p>Add your first contact to get started!</p>
+            </div>
         </div>
-        <div class="form-group">
-          <label for="phone">Phone Number*</label>
-          <input type="tel" id="phone" required>
-        </div>
-        <div class="form-group">
-          <label for="country">Country (optional)</label>
-          <input type="text" id="country">
-        </div>
-        <div class="form-group">
-          <label for="profileImage">Profile Image URL (optional)</label>
-          <input type="text" id="profileImage">
-          <div class="image-preview" id="imagePreview"></div>
-        </div>
-        <div class="form-actions">
-          <button type="button" id="cancelBtn">Cancel</button>
-          <button type="submit" id="saveBtn">Save Contact</button>
-        </div>
-      </form>
     </div>
-  </div>
 
-  <script type="text/javascript" src="script.js"></script>
+    <!-- Add/Edit Contact Modal -->
+    <div class="modal" id="contactModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Add Contact</h2>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <form id="contactForm">
+                <input type="hidden" id="contactId">
+                <div class="form-group">
+                    <label for="name">Name*</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number*</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="country">Country (optional)</label>
+                    <input type="text" id="country">
+                </div>
+                <div class="form-group">
+                    <label for="profileImage">Profile Image URL (optional)</label>
+                    <input type="text" id="profileImage">
+                    <div class="image-preview" id="imagePreview"></div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" id="cancelBtn">Cancel</button>
+                    <button type="submit" id="saveBtn">Save Contact</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="script.js"></script>
 </body>
+
 </html>

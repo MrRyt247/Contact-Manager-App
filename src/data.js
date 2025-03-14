@@ -11,7 +11,7 @@ const sampleContacts = [
     name: "Jane Smith",
     phone: "555-765-4321",
     country: "Canada",
-    profileImage: "/api/placeholder/60/60",
+    // profileImage: "/api/placeholder/60/60",
   },
   {
     id: 3,
@@ -24,7 +24,7 @@ const sampleContacts = [
     name: "Sarah Williams",
     phone: "555-222-3333",
     country: "Australia",
-    profileImage: "/api/placeholder/60/60",
+    // profileImage: "/api/placeholder/60/60",
   },
 ];
 

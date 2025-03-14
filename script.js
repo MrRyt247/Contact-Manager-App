@@ -40,8 +40,8 @@ class ContactManager {
       this.elements.loader.style.opacity = 0;
       setTimeout(() => {
         this.elements.loader.style.display = "none";
-      }, 500);
-    }, 3000);
+      }, 100); // 500 for dev sake
+    }, 500); // 3000
 
     // Event Listeners
     this.elements.addContactBtn.addEventListener("click", () =>
@@ -123,16 +123,28 @@ class ContactManager {
       .map((n) => n[0])
       .join("")
       .toUpperCase();
+    // Simple random background color and contrasting text color (black or white)
+    const randomBgColor =
+      "#" +
+      Math.floor(Math.random() * 16777215)
+        .toString(16)
+        .padStart(6, "0");
+    const brightness =
+      parseInt(randomBgColor.substring(1), 16) > 8388607.5
+        ? "#000000"
+        : "#FFFFFF";
 
     return `
-      <div class="contact-card">
-        <div class="contact-header">
-          <div class="contact-avatar">
-            ${
-              profileImage
-                ? `<img src="${profileImage}" alt="${name}">`
-                : initials
-            }
+    <div class="contact-card">
+      <div class="contact-header">
+        <div class="contact-avatar" style="background-color: ${
+          profileImage ? "#e0e0e0" : randomBgColor
+        }; color: ${profileImage ? "#3498db" : brightness};">
+          ${
+            profileImage
+              ? `<img src="${profileImage}" alt="${name}">`
+              : initials
+          }
           </div>
           <div class="contact-info">
             <div class="contact-name">${name}</div>

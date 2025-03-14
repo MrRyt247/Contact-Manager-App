@@ -1,3 +1,7 @@
+:root {
+  --text-color: #3498db;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -126,7 +130,7 @@ input[type="text"] {
   justify-content: center;
   align-items: center;
   font-size: 24px;
-  color: #3498db;
+  color: var(--text-color);
 }
 
 .contact-info {

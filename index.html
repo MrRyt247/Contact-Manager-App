@@ -5,13 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Contact Manager</title>
 </head>
 
 <body>
     <!-- Loading Screen -->
     <div class="loader" id="loader">
-        <img src="/api/placeholder/150/150" alt="Contact Manager">
+        <p>👤</p>
         <div class="spinner"></div>
     </div>
 
@@ -21,7 +24,9 @@
             <h1>Contact Manager</h1>
             <div class="search-container">
                 <input type="text" id="searchInput" placeholder="Search contacts...">
-                <button id="addContactBtn">Add Contact</button>
+                <button id="addContactBtn">
+                    <i class="fa fa-plus"></i>
+                </button>
             </div>
         </header>
 

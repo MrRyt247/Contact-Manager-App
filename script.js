@@ -153,8 +153,12 @@ class ContactManager {
           </div>
         </div>
         <div class="contact-actions">
-          <button class="edit-btn" data-id="${id}">Edit</button>
-          <button class="delete-btn" data-id="${id}">Delete</button>
+          <button class="edit-btn" data-id="${id}">
+            <i class="fa fa-pencil"></i>
+          </button>
+          <button class="delete-btn" data-id="${id}">
+            <i class="fa fa-trash"></i>
+          </button>
         </div>
       </div>
     `;

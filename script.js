@@ -9,7 +9,7 @@ class ContactManager {
     this.nextId = getNextId();
     this.isEditing = false;
     this.currentSearchQuery = "";
-    this.sortDirection = 'asc';
+    this.sortDirection = "asc";
 
     // DOM Elements
     this.elements = {
@@ -17,9 +17,9 @@ class ContactManager {
       contactsList: document.getElementById("contactsList"),
       searchInput: document.getElementById("searchInput"),
       addContactBtn: document.getElementById("addContactBtn"),
-      sortIcon: document.querySelector('.sort i.fa-arrow-up-a-z'),
-      sortIconDesc: document.querySelector('.sort i.fa-arrow-down-z-a'),
-      sortContainer: document.querySelector('.sort'),
+      sortIcon: document.querySelector(".sort i.fa-arrow-up-a-z"),
+      sortIconDesc: document.querySelector(".sort i.fa-arrow-down-z-a"),
+      sortContainer: document.querySelector(".sort"),
       contactModal: document.getElementById("contactModal"),
       modalTitle: document.getElementById("modalTitle"),
       contactForm: document.getElementById("contactForm"),
@@ -66,8 +66,10 @@ class ContactManager {
     this.elements.profileImageInput.addEventListener("input", () =>
       this.updateImagePreview()
     );
-    this.elements.sortContainer.addEventListener('click', () => this.toggleSort());
-  
+    this.elements.sortContainer.addEventListener("click", () =>
+      this.toggleSort()
+    );
+
     // Initial sort icon state
     this.updateSortIcons();
 
@@ -80,23 +82,23 @@ class ContactManager {
   }
 
   toggleSort() {
-    this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+    this.sortDirection = this.sortDirection === "asc" ? "desc" : "asc";
     this.updateSortIcons();
-    if (this.sortDirection === 'desc') {
+    if (this.sortDirection === "desc") {
       this.contactsList.reverse();
     } else {
       this.contactsList.reverse();
     }
     this.renderContacts();
   }
-  
+
   updateSortIcons() {
-    if (this.sortDirection === 'asc') {
-      this.elements.sortIcon.style.display = 'inline';
-      this.elements.sortIconDesc.style.display = 'none';
+    if (this.sortDirection === "asc") {
+      this.elements.sortIcon.style.display = "inline";
+      this.elements.sortIconDesc.style.display = "none";
     } else {
-      this.elements.sortIcon.style.display = 'none';
-      this.elements.sortIconDesc.style.display = 'inline';
+      this.elements.sortIcon.style.display = "none";
+      this.elements.sortIconDesc.style.display = "inline";
     }
   }
 
@@ -129,6 +131,7 @@ class ContactManager {
       } else {
         html = `
           <div class="empty-state">
+            <i class="fa fa-wind" ></i>
             <h3>No contacts yet</h3>
             <p>Add your first contact to get started!</p>
           </div>
@@ -140,8 +143,8 @@ class ContactManager {
         if (a.favorite && !b.favorite) return -1;
         if (!a.favorite && b.favorite) return 1;
 
-        const comparison =  a.name.localeCompare(b.name);
-        return this.sortDirection === 'asc' ? comparison : -comparison;
+        const comparison = a.name.localeCompare(b.name);
+        return this.sortDirection === "asc" ? comparison : -comparison;
       });
 
       sortedContacts.forEach((contact) => {

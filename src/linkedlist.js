@@ -132,7 +132,6 @@ class LinkedList {
   }
 
   reverse() {
-    // If the list is empty or has only one node, no need to reverse
     if (!this.head || !this.head.next) {
       return;
     }
@@ -141,20 +140,12 @@ class LinkedList {
     let current = this.head;
     let next = null;
 
-    // Reverse the links between nodes
     while (current) {
-      // Store the next node
       next = current.next;
-
-      // Reverse the link
       current.next = prev;
-
-      // Move pointers one position ahead
       prev = current;
       current = next;
     }
-
-    // Update the head to point to the new first node (previously the last)
     this.head = prev;
   }
 

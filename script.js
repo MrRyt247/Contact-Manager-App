@@ -22,7 +22,7 @@ class ContactManager {
       contactId: document.getElementById("contactId"),
       nameInput: document.getElementById("name"),
       phoneInput: document.getElementById("phone"),
-      countryInput: document.getElementById("country"),
+      emailInput: document.getElementById("email"),
       profileImageInput: document.getElementById("profileImage"),
       imagePreview: document.getElementById("imagePreview"),
       closeModal: document.getElementById("closeModal"),
@@ -154,7 +154,7 @@ class ContactManager {
 
   // Create HTML for a contact card
   createContactCard(contact) {
-    const { id, name, phone, country, profileImage, favorite } = contact;
+    const { id, name, phone, email, profileImage, favorite } = contact;
     const initials = name
       .split(" ")
       .map((n) => n[0])
@@ -193,7 +193,7 @@ class ContactManager {
               }
             </div>
             <div class="contact-details">${phone}</div>
-            ${country ? `<div class="contact-details">${country}</div>` : ""}
+            ${email ? `<div class="contact-details">${email}</div>` : ""}
           </div>
         </div>
         <div class="contact-actions">
@@ -234,7 +234,7 @@ class ContactManager {
     this.elements.contactId.value = id;
     this.elements.nameInput.value = contact.name;
     this.elements.phoneInput.value = contact.phone;
-    this.elements.countryInput.value = contact.country || "";
+    this.elements.emailInput.value = contact.email || "";
     this.elements.profileImageInput.value = contact.profileImage || "";
     this.elements.favoriteCheckbox.checked = contact.favorite || false;
 
@@ -266,7 +266,7 @@ class ContactManager {
     const contact = {
       name: this.elements.nameInput.value,
       phone: this.elements.phoneInput.value,
-      country: this.elements.countryInput.value,
+      email: this.elements.emailInput.value,
       profileImage: this.elements.profileImageInput.value,
       favorite: this.elements.favoriteCheckbox.checked,
     };

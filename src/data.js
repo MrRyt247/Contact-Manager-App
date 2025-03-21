@@ -1,34 +1,34 @@
-// Sample contacts data
+// Contacts data
 const sampleContacts = [
   {
     id: 1,
     name: "John Doe",
-    phone: "555-123-4567",
+    phone: "0241234567",
     email: "john.doe@example.com",
     favorite: true,
   },
   {
     id: 2,
     name: "Jane Smith",
-    phone: "555-765-4321",
+    phone: "0557654321",
     email: "jane.smith@example.com",
     favorite: false,
-    // profileImage: "/api/placeholder/60/60",
   },
   {
     id: 3,
     name: "David Johnson",
-    phone: "555-888-9999",
+    phone: "0558869979",
     email: "david.johnson@example.com",
     favorite: true,
+    profileImage:
+      "https://images.unsplash.com/photo-1511367461989-f85a21fda167?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D",
   },
   {
     id: 4,
     name: "Sarah Williams",
-    phone: "555-222-3333",
+    phone: "0272098865",
     email: "sarah.williams@example.com",
     favorite: false,
-    // profileImage: "/api/placeholder/60/60",
   },
 ];
 

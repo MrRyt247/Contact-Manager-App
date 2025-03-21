@@ -14,6 +14,11 @@ class LinkedList {
 
   // Add a contact to the end of the list
   add(contact) {
+    // Ensure contact has favorite property if not already set
+    if (contact.favorite === undefined) {
+      contact.favorite = false;
+    }
+    
     const newNode = new Node(contact);
 
     // If the list is empty
@@ -124,6 +129,36 @@ class LinkedList {
     }
 
     return result;
+  }
+
+  // Toggle favorite status
+  toggleFavorite(id) {
+    let current = this.head;
+
+    while (current) {
+      if (current.contact.id === id) {
+        current.contact.favorite = !current.contact.favorite;
+        return true;
+      }
+      current = current.next;
+    }
+
+    return false;
+  }
+
+  // Get number of favorite contacts
+  getFavoritesCount() {
+    let count = 0;
+    let current = this.head;
+
+    while (current) {
+      if (current.contact.favorite) {
+        count++;
+      }
+      current = current.next;
+    }
+
+    return count;
   }
 }
 

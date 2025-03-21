@@ -5,12 +5,14 @@ const sampleContacts = [
     name: "John Doe",
     phone: "555-123-4567",
     country: "USA",
+    favorite: true,
   },
   {
     id: 2,
     name: "Jane Smith",
     phone: "555-765-4321",
     country: "Canada",
+    favorite: false,
     // profileImage: "/api/placeholder/60/60",
   },
   {
@@ -18,12 +20,14 @@ const sampleContacts = [
     name: "David Johnson",
     phone: "555-888-9999",
     country: "UK",
+    favorite: true,
   },
   {
     id: 4,
     name: "Sarah Williams",
     phone: "555-222-3333",
     country: "Australia",
+    favorite: false,
     // profileImage: "/api/placeholder/60/60",
   },
 ];

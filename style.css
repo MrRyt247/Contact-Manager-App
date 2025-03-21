@@ -62,15 +62,18 @@ h1 {
   gap: 10px;
 }
 
+.contacts-status {
+  display: flex;
+  margin-bottom: 20px;
+  padding-inline: 15px;
+  align-items: center;
+  justify-content: space-between;
+}
+
 /* Stats container styles */
 .stats-container {
   display: flex;
   gap: 20px;
-  margin-bottom: 20px;
-  padding-inline: 15px;
-  /* background-color: white; */
-  /* border-radius: 8px; */
-  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
 }
 
 .stat-item {
@@ -93,6 +96,19 @@ h1 {
 .stat-icon {
   color: var(--favorite-color);
   margin-left: 2px;
+}
+
+.sort {
+  cursor: pointer;
+
+  span {
+    font-weight: bold;
+    color: #555;
+  }
+
+  i {
+    color: #3498db;
+  }
 }
 
 button {
@@ -132,6 +148,7 @@ input[type="text"] {
   flex-direction: column;
   overflow-y: hidden;
   transition: all 300ms ease-out;
+  user-select: contain;
 }
 
 .contact-card:hover {

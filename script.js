@@ -9,6 +9,7 @@ class ContactManager {
     this.nextId = getNextId();
     this.isEditing = false;
     this.currentSearchQuery = "";
+    this.sortDirection = 'asc';
 
     // DOM Elements
     this.elements = {
@@ -16,6 +17,9 @@ class ContactManager {
       contactsList: document.getElementById("contactsList"),
       searchInput: document.getElementById("searchInput"),
       addContactBtn: document.getElementById("addContactBtn"),
+      sortIcon: document.querySelector('.sort i.fa-arrow-up-a-z'),
+      sortIconDesc: document.querySelector('.sort i.fa-arrow-down-z-a'),
+      sortContainer: document.querySelector('.sort'),
       contactModal: document.getElementById("contactModal"),
       modalTitle: document.getElementById("modalTitle"),
       contactForm: document.getElementById("contactForm"),
@@ -62,6 +66,10 @@ class ContactManager {
     this.elements.profileImageInput.addEventListener("input", () =>
       this.updateImagePreview()
     );
+    this.elements.sortContainer.addEventListener('click', () => this.toggleSort());
+  
+    // Initial sort icon state
+    this.updateSortIcons();
 
     // Load sample contacts
     this.loadSampleContacts();
@@ -69,6 +77,27 @@ class ContactManager {
     // Initial render
     this.renderContacts();
     this.updateStats();
+  }
+
+  toggleSort() {
+    this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+    this.updateSortIcons();
+    if (this.sortDirection === 'desc') {
+      this.contactsList.reverse();
+    } else {
+      this.contactsList.reverse();
+    }
+    this.renderContacts();
+  }
+  
+  updateSortIcons() {
+    if (this.sortDirection === 'asc') {
+      this.elements.sortIcon.style.display = 'inline';
+      this.elements.sortIconDesc.style.display = 'none';
+    } else {
+      this.elements.sortIcon.style.display = 'none';
+      this.elements.sortIconDesc.style.display = 'inline';
+    }
   }
 
   // Load sample contacts
@@ -110,7 +139,9 @@ class ContactManager {
       const sortedContacts = [...contacts].sort((a, b) => {
         if (a.favorite && !b.favorite) return -1;
         if (!a.favorite && b.favorite) return 1;
-        return a.name.localeCompare(b.name);
+
+        const comparison =  a.name.localeCompare(b.name);
+        return this.sortDirection === 'asc' ? comparison : -comparison;
       });
 
       sortedContacts.forEach((contact) => {

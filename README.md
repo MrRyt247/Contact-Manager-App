@@ -122,7 +122,7 @@ This is a **web-based Contact Manager application** implemented using **HTML, CS
 | Flavio Sobbin       | Documentation & Code Review     |
 | Edmund Kwame Denteh | Frontend Development (HTML/CSS) |
 |                     | Backend Logic (JavaScript)      |
-|                     | Project Lead & Core Logic       |
+|   Odame Adwoa Animah|Project Lead & Core Logic       |
 
 ## 👥✨ Contributions
 

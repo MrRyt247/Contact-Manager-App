@@ -1,5 +1,5 @@
 :root {
-  --text-color: #3498db;
+  --primary: #3498db;
   --favorite-color: #f1c40f;
 }
 
@@ -35,7 +35,7 @@ body {
 
 .fa-spinner {
   font-size: 2rem;
-  color: #3498db;
+  color: var(--primary);
 }
 
 .container {
@@ -54,7 +54,7 @@ header {
 }
 
 h1 {
-  color: #3498db;
+  color: var(--primary);
 }
 
 .search-container {
@@ -89,7 +89,7 @@ h1 {
 
 .stat-value {
   font-size: 18px;
-  color: #3498db;
+  color: var(--primary);
   font-weight: bold;
 }
 
@@ -107,13 +107,13 @@ h1 {
   }
 
   i {
-    color: #3498db;
+    color: var(--primary);
   }
 }
 
 button {
   padding: 8px 15px;
-  background-color: #3498db;
+  background-color: var(--primary);
   color: white;
   border: none;
   border-radius: 4px;
@@ -353,7 +353,7 @@ input[id="searchInput"] {
 }
 
 .form-group input:focus + label i {
-  color: #3498db;
+  color: var(--primary);
 }
 
 .image-preview {
@@ -367,7 +367,7 @@ input[id="searchInput"] {
   justify-content: center;
   align-items: center;
   font-size: 24px;
-  color: #3498db;
+  color: var(--primary);
   overflow: hidden;
 }
 
@@ -408,4 +408,26 @@ input[id="searchInput"] {
   padding: 20px;
   color: #777;
   grid-column: 1 / -1;
+}
+
+.file-operations {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.save-contacts-btn {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  gap: 8px;
+  background-color: var(--primary);
+}
+
+.save-contacts-btn:hover {
+  background-color: #1f72a9;
+}
+
+.save-contacts-btn i {
+  margin-right: 5px;
 }

@@ -1,15 +1,15 @@
-// Import the LinkedList class and sample data
+// Import the LinkedList class
 import LinkedList from "./src/linkedlist.js";
-import { getSampleContacts, getNextId } from "./src/data.js";
 
 // Contact Manager App
 class ContactManager {
   constructor() {
     this.contactsList = new LinkedList();
-    this.nextId = getNextId();
+    this.nextId = 0;
     this.isEditing = false;
     this.currentSearchQuery = "";
     this.sortDirection = "asc";
+    this.contactsFileHandle = null;
 
     // DOM Elements
     this.elements = {
@@ -17,6 +17,7 @@ class ContactManager {
       contactsList: document.getElementById("contactsList"),
       searchInput: document.getElementById("searchInput"),
       addContactBtn: document.getElementById("addContactBtn"),
+      saveContactsBtn: document.getElementById("saveContactsBtn"),
       sortIcon: document.querySelector(".sort i.fa-arrow-up-a-z"),
       sortIconDesc: document.querySelector(".sort i.fa-arrow-down-z-a"),
       sortContainer: document.querySelector(".sort"),
@@ -42,14 +43,14 @@ class ContactManager {
     this.init();
   }
 
-  init() {
+  async init() {
     // Simulate loading
     setTimeout(() => {
       this.elements.loader.style.opacity = 0;
       setTimeout(() => {
         this.elements.loader.style.display = "none";
-      }, 100); // 500 for dev sake
-    }, 500); // 3000
+      }, 100);
+    }, 500);
 
     // Event Listeners
     this.elements.addContactBtn.addEventListener("click", () =>
@@ -69,29 +70,85 @@ class ContactManager {
     this.elements.sortContainer.addEventListener("click", () =>
       this.toggleSort()
     );
+    this.elements.saveContactsBtn.addEventListener("click", () =>
+      this.saveContactsToFile()
+    );
+
+    // Load existing contacts from localStorage or contacts.json
+    this.loadContacts();
 
     // Initial sort icon state
     this.updateSortIcons();
-
-    // Load sample contacts
-    this.loadSampleContacts();
 
     // Initial render
     this.renderContacts();
     this.updateStats();
   }
 
+  // Load contacts from localStorage
+  loadContacts() {
+    const savedContacts = localStorage.getItem("contacts");
+    const savedNextId = localStorage.getItem("nextId");
+
+    if (savedContacts) {
+      const contacts = JSON.parse(savedContacts);
+      this.nextId = savedNextId ? parseInt(savedNextId) : 0;
+
+      // Populate the LinkedList
+      contacts.forEach((contact) => {
+        this.contactsList.add(contact);
+      });
+    }
+  }
+
+  // Save contacts to file using File System Access API
+  async saveContactsToFile() {
+    try {
+      // Prepare contacts data
+      const contacts = this.contactsList.getAll();
+      const data = {
+        contacts: contacts,
+        nextId: this.nextId,
+      };
+
+      // Save to localStorage (for persistence)
+      localStorage.setItem("contacts", JSON.stringify(contacts));
+      localStorage.setItem("nextId", this.nextId.toString());
+
+      // Prompt to save file
+      const fileHandle = await window.showSaveFilePicker({
+        suggestedName: "contacts.json",
+        types: [
+          {
+            description: "JSON Files",
+            accept: { "application/json": [".json"] },
+          },
+        ],
+      });
+
+      // Create a writable stream
+      const writable = await fileHandle.createWritable();
+      await writable.write(JSON.stringify(data, null, 2));
+      await writable.close();
+
+      alert("Contacts saved successfully!");
+    } catch (error) {
+      console.error("Error saving contacts:", error);
+      if (error.name !== "AbortError") {
+        alert("Failed to save contacts. Please try again.");
+      }
+    }
+  }
+
+  // Toggle sort direction
   toggleSort() {
     this.sortDirection = this.sortDirection === "asc" ? "desc" : "asc";
     this.updateSortIcons();
-    if (this.sortDirection === "desc") {
-      this.contactsList.reverse();
-    } else {
-      this.contactsList.reverse();
-    }
+    this.contactsList.reverse();
     this.renderContacts();
   }
 
+  // Update sort icons
   updateSortIcons() {
     if (this.sortDirection === "asc") {
       this.elements.sortIcon.style.display = "inline";
@@ -100,15 +157,6 @@ class ContactManager {
       this.elements.sortIcon.style.display = "none";
       this.elements.sortIconDesc.style.display = "inline";
     }
-  }
-
-  // Load sample contacts
-  loadSampleContacts() {
-    const sampleContacts = getSampleContacts();
-
-    sampleContacts.forEach((contact) => {
-      this.contactsList.add(contact);
-    });
   }
 
   // Update stats display
@@ -178,12 +226,6 @@ class ContactManager {
 
     // Update stats
     this.updateStats();
-  }
-
-  // Toggle favorite status
-  toggleFavorite(id) {
-    this.contactsList.toggleFavorite(id);
-    this.renderContacts();
   }
 
   // Create HTML for a contact card
@@ -274,7 +316,6 @@ class ContactManager {
 
     // Update image preview
     this.updateImagePreview();
-
     this.elements.contactModal.style.display = "flex";
   }
 
@@ -293,8 +334,8 @@ class ContactManager {
     }
   }
 
-  // Handle form submission
-  handleFormSubmit(e) {
+  // Handle form submit
+  async handleFormSubmit(e) {
     e.preventDefault();
 
     const contact = {
@@ -315,13 +356,27 @@ class ContactManager {
 
     this.closeModal();
     this.renderContacts();
+
+    // Save to localStorage
+    localStorage.setItem(
+      "contacts",
+      JSON.stringify(this.contactsList.getAll())
+    );
+    localStorage.setItem("nextId", this.nextId.toString());
   }
 
-  // Delete a contact
-  deleteContact(id) {
+  // Delete contact
+  async deleteContact(id) {
     if (confirm("Are you sure you want to delete this contact?")) {
       this.contactsList.delete(id);
       this.renderContacts();
+
+      // Save to localStorage
+      localStorage.setItem(
+        "contacts",
+        JSON.stringify(this.contactsList.getAll())
+      );
+      localStorage.setItem("nextId", this.nextId.toString());
     }
   }
 
@@ -330,9 +385,28 @@ class ContactManager {
     this.currentSearchQuery = this.elements.searchInput.value.trim();
     this.renderContacts();
   }
+
+  // Toggle favorite
+  async toggleFavorite(id) {
+    this.contactsList.toggleFavorite(id);
+    this.renderContacts();
+
+    // Save to localStorage
+    localStorage.setItem(
+      "contacts",
+      JSON.stringify(this.contactsList.getAll())
+    );
+  }
 }
 
 // Initialize the app when the DOM is fully loaded
 document.addEventListener("DOMContentLoaded", () => {
-  new ContactManager();
+  // Check if File System Access API is supported
+  if ("showSaveFilePicker" in window) {
+    new ContactManager();
+  } else {
+    alert(
+      "Your browser does not support File System Access API. Please use a modern browser like Chrome."
+    );
+  }
 });

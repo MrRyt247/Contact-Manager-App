@@ -123,6 +123,7 @@ This is a **web-based Contact Manager application** implemented using **HTML, CS
 | Edmund Kwame Denteh | Frontend Development (HTML/CSS) |
 |                     | Backend Logic (JavaScript)      |
 |   Odame Adwoa Animah|Project Lead & Core Logic       |
+| Elizabeth Tandoh Maame Ama | Code Review |
 
 ## 👥✨ Contributions
 

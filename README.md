@@ -161,6 +161,7 @@ contact-manager-web/
 |  Sampah Allen Ekyem        | 1827822 | Backend Logic (JavaScript)      |
 | Odame Adwoa Animah         |         | Project Lead & Core Logic       |
 | Elizabeth Tandoh Maame Ama |         | Code Review                     |
+| Benjamin Kofi Selorm Azumah| 1819322 | Testing and QA                  |
 
 ## 👥✨ Contributions
 

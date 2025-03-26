@@ -160,7 +160,8 @@ contact-manager-web/
 | Edmund Kwame Denteh        | 1821522 | Frontend Development (HTML)     |
 | koray colin owuraku        | 1823422 | Frontend Development (CSS)      |
 | Sampah Allen Ekyem         | 1827822 | Backend Logic (JavaScript)      |
-| Odame Adwoa Animah         |  1825822| Project Lead & Core Logic       |
+| Adepah John Junior         | 1813622 | Backend Logic (JavaScript)      |
+| Odame Adwoa Animah         | 1825822 | Project Lead & Core Logic       |
 | Elizabeth Tandoh Maame Ama | 1828522 | Code Review                     |
 | Benjamin Kofi Selorm Azumah| 1819322 | Testing and QA                  |
 

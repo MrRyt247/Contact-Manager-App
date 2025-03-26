@@ -10,7 +10,7 @@
 - [Setup/Installation](#setupinstallation)
 - [Usage](#usage)
 - [Code Structure](#code-structure)
-- [Example Output](#example-output)
+- [New Features and Improvements](#new-features-and-improvements)
 - [Team Members](#team-members)
 - [Contributions](#contributions)
 - [License](#license)
@@ -18,130 +18,166 @@
 
 ## ✏️ Description
 
-This is a **web-based Contact Manager application** implemented using **HTML, CSS, and JavaScript**, utilizing the **Linked List** data structure for dynamic contact management. The project provides a responsive user interface with features such as adding, deleting, searching, and listing contacts. It demonstrates how linked lists can be used effectively in a front-end environment to manage dynamic data.
+This is a **web-based Contact Manager application** implemented using **HTML, CSS, and JavaScript**, utilizing the **Linked List** data structure for dynamic contact management. The project provides a responsive user interface with advanced features for efficient contact organization and management.
 
 ## ✨ Features
 
 ### Core Functionalities
 
-- **Add Contact**: Insert a new contact (name, phone number, optional country, and profile image).
-- **Delete Contact**: Remove a contact by name.
-- **Search Contact**: Find contacts by name or partial match.
-- **Edit Contact**: Update existing contact details.
-- **List All Contacts**: Display all contacts dynamically in the UI.
+- **Add Contact**: Insert a new contact with comprehensive details
+- **Delete Contact**: Remove a contact with confirmation
+- **Search Contact**: Find contacts by name or phone number
+- **Edit Contact**: Update existing contact details
+- **List All Contacts**: Display contacts dynamically in the UI
+- **Favorites Management**: Mark and filter favorite contacts
 
 ### UI-Specific Features
 
-- Responsive design with HTML and CSS for a clean and intuitive interface.
-- Real-time updates of the contact list after each operation.
-- Loading screen with a placeholder image during initialization.
+- Responsive design with clean and intuitive interface
+- Real-time updates of the contact list
+- Loading screen during initialization
+- Contact sorting (ascending/descending)
+- Dynamic contact card generation with random color avatars
+- File system integration for saving contacts
+
+## 🆕 New Features and Improvements
+
+### Recent Enhancements
+
+1. **File System Integration**
+
+   - Added support for File System Access API
+   - Allow users to save contacts to a JSON file
+   - Persistent storage using localStorage
+
+2. **Enhanced Contact Management**
+
+   - Implemented advanced sorting (favorites first, alphabetical)
+   - Added visual indicators for favorite contacts
+   - Dynamic avatar generation with random colors
+   - Improved search functionality
+
+3. **User Experience Improvements**
+
+   - Hover effects on contact cards
+   - Intuitive action buttons (edit, delete, favorite)
+   - Responsive modal for adding/editing contacts
+   - Loading screen with spinner
+
+4. **Search and Filter**
+
+   - Real-time search across name and phone number
+   - No-results state handling
+   - Sorting options (ascending/descending)
+
+5. **Performance Optimizations**
+   - Efficient linked list implementation
+   - Minimal DOM manipulations
+   - Streamlined data management
 
 ## 🚀 Objectives
 
-1. Implement CRUD operations using linked lists in JavaScript.
-2. Demonstrate dynamic data management with a web-based interface.
-3. Highlight the advantages of linked lists over static arrays in JavaScript.
-4. Ensure seamless integration of front-end logic with data structures.
-5. Provide a polished user experience with HTML, CSS, and vanilla JavaScript.
+1. Implement CRUD operations using linked lists in JavaScript
+2. Demonstrate dynamic data management with a web-based interface
+3. Highlight the advantages of linked lists over static arrays
+4. Ensure seamless integration of front-end logic with data structures
+5. Provide a polished, responsive user experience
 
 ## ⚒️ Methodology
 
 ### Why Linked Lists in JavaScript?
 
-- **Dynamic Memory Management**: Linked lists allow efficient insertion and deletion without reindexing.
-- **Modularity**: Separation of linked list logic (backend) from UI (frontend) ensures maintainability.
-- **Traversal Efficiency**: Linked lists provide O(1) insertion/deletion compared to O(n) for arrays in some cases.
-
-### Implementation Highlights
-
-- **Node Structure**: Each contact is stored as a `Node` object with `data` (name, phone, country, image) and `next` pointer.
-- **Frontend Design**: HTML and CSS provide a structured layout, while JavaScript handles interactivity and data manipulation.
-- **Edge Cases**: Handle empty lists, duplicate entries, and invalid inputs gracefully with error messages.
+- **Dynamic Memory Management**: Efficient insertion and deletion without reindexing
+- **Modularity**: Clear separation of linked list logic and UI
+- **Traversal Efficiency**: O(1) insertion/deletion for certain operations
+- **Flexible Data Handling**: Easy to implement advanced sorting and filtering
 
 ## 💻 Technologies Used
 
-- **HTML**: For structuring the app's UI components.
-- **CSS**: For styling the app and ensuring responsiveness.
-- **JavaScript**: For implementing linked list logic, event handling, and dynamic updates.
-- **Browser Testing**: Tested on modern browsers (Edge, Chrome, Firefox, Edge).
-- **Code Editor**: VS Code (Recommended), Sublime Text, or any text editor.
+- **HTML5**: Semantic markup and structure
+- **CSS3**: Responsive and modern styling
+- **JavaScript (ES6+)**: Dynamic interactions and data management
+- **File System Access API**: File saving capabilities
+- **LocalStorage**: Client-side data persistence
 
 ## 📦 Setup/Installation
 
 1. **Clone the repository**:
+
    ```bash
    git clone https://github.com/your-username/contact-manager-web.git
    cd contact-manager-web
    ```
-2. **Run the application**:
-   - Open `index.html` in your preferred browser.
-   - No additional dependencies are required since this is a vanilla JavaScript implementation.
+
+2. **Browser Compatibility**:
+
+   - Requires a modern browser supporting File System Access API (Chrome recommended)
+   - No additional dependencies needed
+
+3. **Running the Application**:
+   - Open `index.html` directly in a modern web browser
+   - Ensure JavaScript is enabled
 
 ## 🚗 Usage
 
 ### Workflow
 
-1. **Launch the App**:
-   - Open `index.html` in your browser.
-   - A loading screen will appear for 3 seconds before transitioning to the main UI.
-2. **Add a Contact**:
-   - Click the "Add Contact" button to open the form.
-   - Fill in the required fields (Name, Phone Number) and optional fields (Country, Profile Image URL).
-   - Click "Save" to add the contact.
-3. **Search Contacts**:
-   - Enter a search key in the search bar and click "Search."
-   - Matching contacts will be displayed dynamically.
-4. **Edit or Delete a Contact**:
-   - Use the "Edit" button to modify contact details.
-   - Use the "Delete" button to remove a contact.
+1. **Launch the App**
+
+   - Loading screen appears briefly
+   - Main contact management interface loads
+
+2. **Contact Operations**
+
+   - **Add Contact**: Click "+" button, fill in details
+   - **Edit Contact**: Click pencil icon on contact card
+   - **Delete Contact**: Click trash icon, confirm deletion
+   - **Favorite Contacts**: Use star button to toggle
+
+3. **Advanced Features**
+   - Search contacts by name or phone
+   - Sort contacts (ascending/descending)
+   - Save contacts to a JSON file
+   - Responsive design for various devices
 
 ## 👷 Code Structure
 
 ```
-.
+contact-manager-web/
+├── index.html         # Main HTML structure
+├── script.js          # Core application logic
+├── style.css          # Styling and responsive design
 ├── src/
-│   ├── data.js         # Javascript file for storing contacts
-│   └── linkedlist.js   # JavaScript file for logic and linked list implementation
-├── index.html          # Main HTML file for the app
-├── styles.css          # CSS file for styling
-├── script.js           # JavaScript file for logic and web functionality
-├── LICENSE             # MIT License
-└── README.md           # Project documentation
+│   ├── linkedlist.js  # Linked list data structure implementation
+└── README.md          # Project documentation
 ```
-
-### Key Components
-
-- **index.html**: Contains the structure of the app, including the loading screen, main UI, and add/edit contact form.
-- **styles.css**: Defines the visual appearance of the app, including layout, colors, and responsiveness.
-- **script.js**: Implements the linked list data structure and handles app functionality (adding, searching, editing, and deleting contacts).
 
 ## 👥 Team Members
 
-| Name                | Role                            |
-| ------------------- | ------------------------------- |
-| Flavio Sobbin       | Documentation & Code Review     |
-| Edmund Kwame Denteh | Frontend Development (HTML/CSS) |
-|                     | Backend Logic (JavaScript)      |
-|   Odame Adwoa Animah|Project Lead & Core Logic       |
-| Elizabeth Tandoh Maame Ama | Code Review |
+| Name                       | Index   | Role                            |
+| -------------------------- | ------- | ------------------------------- |
+| Flavio Sobbin              | 1828322 | Documentation & Code Review     |
+| Edmund Kwame Denteh        |         | Frontend Development (HTML/CSS) |
+|                            |         | Backend Logic (JavaScript)      |
+| Odame Adwoa Animah         |         | Project Lead & Core Logic       |
+| Elizabeth Tandoh Maame Ama |         | Code Review                     |
 
 ## 👥✨ Contributions
 
-Contributions are welcome! To contribute:
+Contributions are welcome! Please:
 
-1. Fork the repository.
-2. Create a new branch: `git checkout -b feature/your-feature`.
-3. Develop in either the frontend or backend (or both!).
-4. Submit a pull request.
-5. Report bugs or suggest features via [GitHub Issues](https://github.com/your-username/contact-manager-web/issues).
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Submit a pull request
 
 ## ©️ License
 
-This project is licensed under the MIT License — see the LICENSE file for details.
+MIT License — see the LICENSE file for details.
 
 ## 📖 References
 
-- [MDN Web Docs - HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
-- [MDN Web Docs - CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
-- [MDN Web Docs - JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [MDN Web Docs](https://developer.mozilla.org/)
+- [File System Access API](https://developer.mozilla.org/en-US/docs/Web/API/File_System_Access_API)
 - [Linked List Data Structure](https://en.wikipedia.org/wiki/Linked_list)

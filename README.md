@@ -157,7 +157,8 @@ contact-manager-web/
 | Name                       | Index   | Role                            |
 | -------------------------- | ------- | ------------------------------- |
 | Flavio Sobbin              | 1828322 | Documentation & Code Review     |
-| Edmund Kwame Denteh        |         | Frontend Development (HTML/CSS) |
+| Edmund Kwame Denteh        | 1821522 | Frontend Development (HTML)     |
+| koray colin owuraku        | 1823422 | Frontend Development (CSS)      |
 | Sampah Allen Ekyem         | 1827822 | Backend Logic (JavaScript)      |
 | Odame Adwoa Animah         |  1825822| Project Lead & Core Logic       |
 | Elizabeth Tandoh Maame Ama | 1828522 | Code Review                     |

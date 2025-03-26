@@ -158,9 +158,9 @@ contact-manager-web/
 | -------------------------- | ------- | ------------------------------- |
 | Flavio Sobbin              | 1828322 | Documentation & Code Review     |
 | Edmund Kwame Denteh        |         | Frontend Development (HTML/CSS) |
-|  Sampah Allen Ekyem        | 1827822 | Backend Logic (JavaScript)      |
+| Sampah Allen Ekyem         | 1827822 | Backend Logic (JavaScript)      |
 | Odame Adwoa Animah         |         | Project Lead & Core Logic       |
-| Elizabeth Tandoh Maame Ama |         | Code Review                     |
+| Elizabeth Tandoh Maame Ama | 1828522 | Code Review                     |
 | Benjamin Kofi Selorm Azumah| 1819322 | Testing and QA                  |
 
 ## 👥✨ Contributions
